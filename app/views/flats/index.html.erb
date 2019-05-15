@@ -1,0 +1,18 @@
+<div class="container">
+<h1>My Flats List</h1>
+
+<h2>
+  <% @flats.each do |flat| %>
+  <ul>
+    <li><%= link_to flat.name, flat_path(flat) %></li>
+    <li><%= flat.address %></li>
+    <li><%= flat.description %></li>
+    <li><%= flat.price_per_night %>€</li>
+    <li><%= flat.number_of_guests %></li>
+   <p class="button"> <button type="button" class="btn btn-warning"> <%= link_to "delete", flat_path(flat.id), method: :delete %> </button> </p>
+  </ul>
+
+  <% end %>
+
+<p class="button"><button type="button" class="btn btn-primary"><%= link_to "Add a flat", new_flat_path %></button></p>
+</div>
